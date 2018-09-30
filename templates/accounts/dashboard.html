@@ -7,8 +7,8 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h1 class="display-4">About BT Real Estate</h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+          <h1 class="display-4">User Dashboard</h1>
+          <p class="lead">Manage your BT Real Estate account</p>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
             <a href="{% url 'index' %}">
               <i class="fas fa-home"></i> Home</a>
           </li>
-          <li class="breadcrumb-item active"> About</li>
+          <li class="breadcrumb-item active"> Dashboard</li>
         </ol>
       </nav>
     </div>
@@ -36,40 +36,32 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Welcome John</h2>
-          <p>Here are the property listings that you have inquired about</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Property</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>22</td>
-                <td>45 Drivewood Circle</td>
-                <td>
-                  <a class="btn btn-light" href="#">View Listing</a>
-                </td>
-              </tr>
-              <tr>
-                <td>43</td>
-                <td>22 Westbrook rd</td>
-                <td>
-                  <a class="btn btn-light" href="#">View Listing</a>
-                </td>
-              </tr>
-              <tr>
-                <td>31</td>
-                <td>12 Samson Ave</td>
-                <td>
-                  <a class="btn btn-light" href="#">View Listing</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <h2>Welcome {{ user.first_name }}</h2>
+          {% if contacts %}
+            <p>Here are the property listings that you have inquired about</p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Property</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for contact in contacts %}
+                  <tr>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.listing }}</td>
+                    <td>
+                      <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p>You have not made any inquiries</p>
+          {% endif %}
         </div>
       </div>
     </div>
