@@ -1,3 +1,4 @@
+An amazing project
 #!/usr/bin/env python
 import os
 import sys
