@@ -15,7 +15,8 @@ img {
   margin-right: 0.4rem; }
 
 #showcase {
-  background: url(../img/showcase.jpg) no-repeat top center fixed/cover;
+  background: url(../img/showcase.jpg) no-repeat top center fixed;
+  background-size: cover;
   position: relative;
   min-height: 650px;
   color: #fff;
@@ -34,7 +35,8 @@ img {
     background: rgba(51, 51, 51, 0.8); }
 
 #services {
-  background: url(../img/building.jpg) no-repeat top center fixed/cover;
+  background: url(../img/building.jpg) no-repeat top center fixed;
+  background-size: cover;
   min-height: 300px;
   position: relative;
   overflow: hidden; }
@@ -48,7 +50,8 @@ img {
     background: rgba(32, 134, 107, 0.8); }
 
 #showcase-inner {
-  background: url(../img/building.jpg) no-repeat top center fixed/cover;
+  background: url(../img/building.jpg) no-repeat top center fixed;
+  background-size: cover;
   position: relative;
   overflow: hidden;
   min-height: 200px; }
