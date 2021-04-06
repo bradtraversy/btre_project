@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.core.mail import send_mail
 from .models import Contact
+from listings.models import Listing
 
 def contact(request):
   if request.method == 'POST':
@@ -36,5 +37,6 @@ def contact(request):
     # )
 
     messages.success(request, 'Your request has been submitted, a realtor will get back to you soon')
-    return redirect('/listings/'+listing_id)
+    listing_object = get_object_or_404(Listing, pk=listing_id)
+    return redirect(listing_object)
 
